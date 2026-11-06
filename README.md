@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -335,7 +334,7 @@ window.CLASES = [
           <label>Título<input name="titulo" required maxlength="80"></label>
           <label>Materia<input name="materia" required list="listaMaterias" maxlength="40" value="${esc(materia || "")}"></label>
           <datalist id="listaMaterias">${materias().map(m => `<option value="${esc(m)}">`).join("")}</datalist>
-          <label>Fecha<input name="fecha" type="date" required value="${new Date().toISOString().slice(0, 10)}"></label>
+          <label>Fecha<input name="fecha" type="date" required value="${new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10)}"></label>
           <label>Audio o video (opcional)<input name="archivo" type="file" accept="audio/*,video/*"></label>
           <button class="btn" type="submit">Crear clase</button>
         </form>
